@@ -1,0 +1,17 @@
+﻿  main.cpp
+  ofApp.cpp
+  circle.cpp
+     Creating library bin\week1_homework_debug.lib and object bin\week1_homework_debug.exp
+  week1_homework.vcxproj -> C:\Users\user\Documents\Visual Studio 2015\Projects\week5\week1_homework\bin\week1_homework_debug.exe
+  week1_homework.vcxproj -> bin\week1_homework_debug.pdb (Full PDB)
+  
+  	                   9	C:\Users\user\Documents\of_v0.9.3_vs_release\export\vs\Win32\
+  	  *EXTRA File 		 1503232	C:\Users\user\Documents\Visual Studio 2015\Projects\week5\week1_homework\bin\fmodex64.dll
+  	  *EXTRA File 		 1552384	C:\Users\user\Documents\Visual Studio 2015\Projects\week5\week1_homework\bin\fmodexL64.dll
+  	    Changed   		 2939392	C:\Users\user\Documents\of_v0.9.3_vs_release\export\vs\Win32\assimp.dll
+  	    Changed   		 5647872	C:\Users\user\Documents\of_v0.9.3_vs_release\export\vs\Win32\FreeImage.dll
+  	    Changed   		  580608	C:\Users\user\Documents\of_v0.9.3_vs_release\export\vs\Win32\freetype.dll
+  	    Changed   		  237568	C:\Users\user\Documents\of_v0.9.3_vs_release\export\vs\Win32\glut32.dll
+  	    Older     		 1178624	C:\Users\user\Documents\of_v0.9.3_vs_release\export\vs\Win32\libeay32.dll
+  	    Older     		  269824	C:\Users\user\Documents\of_v0.9.3_vs_release\export\vs\Win32\ssleay32.dll
+  	    Changed   		   69632	C:\Users\user\Documents\of_v0.9.3_vs_release\export\vs\Win32\Zlib.dll
