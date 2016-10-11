@@ -2,43 +2,64 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	//ofBackground(pic1.jpg);
-	image.load("pic1.jpg");
+	paddle.load("paddle2.png");
+	k = 0.05;
+	restLength = 200;
 
+	anchor = ofVec2f(ofGetWidth() / 2, 155);
+	ball = ofVec2f(ofGetWidth() / 2, restLength + 50);
 
-	planet01.setup();
-	planet02.setup();
-	planet03.setup();
+	dragging = false;
+}
 
-	planetGroups.add(planet01.planetGroup);
-	planetGroups.add(planet02.planetGroup);
-	planetGroups.add(planet03.planetGroup);
-	gui.setup(planetGroups);
+//--------------------------------------------------------------
+//Our own function in the main
+
+void ofApp::applyForce(ofVec2f force) {
+	//    acc += force;
+	acc.x += force.x;
+	acc.y += force.y;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	planet01.update();
-	planet02.update();
-	planet03.update();
+	if (dragging == true) {
+		return; //go out of update of function
+	}
+
+	//Steps to create the springy effect
+	ofVec2f force = ball - anchor; // the direction of the vector
+
+	if (ball.y < 50) {
+		ball.y = 50;
+	}
+
+	float currentLength = force.length();
+	float x = currentLength - restLength;
+	//normalize refers to vector math whereby you multiply the vector by the "unit vector"
+	force.normalize();
+	force *= -1 * k * x;  //applying Hooke's Law
+
+	applyForce(force);
+	applyForce(ofVec2f(0, 1.0));//brings the x component back to 0
+
+								//Add dynamic movement
+	vel += acc;
+	vel *= 0.98; // gravity
+	ball += vel;
+	acc *= 0; //set back to 0 to bring the spring thing back to a neutral position.
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	image.draw(ofGetWidth() - 1024, ofGetHeight() - 768, 1024, 768);
+	//PADDLE
 
-	gui.draw();
+	//paddle.draw(ofGetMouseX(), ofGetMouseY()); //Mouse
+	paddle.draw(ofGetWidth() / 2 - 150, 30);
 
-	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-	planet01.draw();
-
-	ofTranslate(planet01.posX, planet01.posY);
-	planet02.draw();
-
-	ofTranslate(planet02.posX, planet02.posY);
-	planet03.draw();
-
-
+	ofLine(anchor, ball);
+	ofCircle(anchor, 0);
+	ofCircle(ball, 20);
 }
 
 //--------------------------------------------------------------
@@ -58,17 +79,23 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+	if (dragging == true) {
+		ball.set(x, y);
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+	if (ofVec2f(x, y).distance(ball) < 20) {
+		ball.set(x, y);
+		dragging = true;
+		vel *= 0;
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+	dragging = false;
 }
 
 //--------------------------------------------------------------

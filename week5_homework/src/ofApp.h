@@ -1,8 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxGui.h"
-#include "Planet.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,12 +20,16 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
-		ofxPanel gui;
-		ofParameterGroup planetGroups;
-		Planet planet01;
-		Planet planet02;
-		Planet planet03;
 
-		ofImage image;
+		ofImage paddle;
+
+		void applyForce(ofVec2f force);
+		float k;
+		float restLength;
+
+		ofVec2f acc, vel;
+		ofVec2f anchor, ball;
+
+		//to make the ball dragable
+		bool dragging;
 };
