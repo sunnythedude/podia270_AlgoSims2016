@@ -1,0 +1,6 @@
+﻿videoInputD.lib(videoInput.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+     Creating library bin\sunny_midterm_debug.lib and object bin\sunny_midterm_debug.exp
+  sunny_midterm.vcxproj -> C:\Users\user\documents\visual studio 2015\Projects\midterm\sunny_midterm\bin\sunny_midterm_debug.exe
+  sunny_midterm.vcxproj -> bin\sunny_midterm_debug.pdb (Full PDB)
+  
+  	                   9	C:\Users\user\Documents\of_v0.9.3_vs_release\export\vs\Win32\
