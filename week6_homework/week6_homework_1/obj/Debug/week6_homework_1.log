@@ -1,1 +1,3 @@
-﻿
+﻿     Creating library bin\week6_homework_1_debug.lib and object bin\week6_homework_1_debug.exp
+ofApp.obj : error LNK2019: unresolved external symbol "public: void __thiscall Particle::addRepulsionForce(class ofVec3f,float,float)" (?addRepulsionForce@Particle@@QAEXVofVec3f@@MM@Z) referenced in function "public: virtual void __thiscall ofApp::update(void)" (?update@ofApp@@UAEXXZ)
+bin\week6_homework_1_debug.exe : fatal error LNK1120: 1 unresolved externals
